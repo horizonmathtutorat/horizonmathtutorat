@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horizon Math - Excellence en Mathématiques | Cours Particuliers</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <title>Horizon Math Tutorat - Cours Particuliers de Mathématiques</title>
     <style>
         * {
             margin: 0;
@@ -13,663 +12,339 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
             overflow-x: hidden;
-            background: #f8f9fa;
         }
 
-        /* Header avec logo animé */
+        /* Header & Navigation */
         header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         nav {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 3rem;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo-3d {
-            width: 60px;
-            height: 60px;
-            position: relative;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(5deg); }
-        }
-
-        .logo-shape {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-
-        .shape-triangle {
-            width: 0;
-            height: 0;
-            border-left: 30px solid transparent;
-            border-right: 30px solid transparent;
-            border-bottom: 52px solid #FF6B6B;
-            position: absolute;
-            animation: rotate 4s linear infinite;
-        }
-
-        .shape-circle {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #4ECDC4;
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .shape-square {
-            width: 25px;
-            height: 25px;
-            background: #FFE66D;
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            animation: rotate 3s linear infinite reverse;
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-        }
-
-        .logo-text {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-menu a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.05rem;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        .nav-menu a:after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            transition: width 0.3s;
-        }
-
-        .nav-menu a:hover:after {
-            width: 100%;
-        }
-
-        .contact-btn {
-            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
-            color: white !important;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .contact-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
-        }
-
-        .contact-btn:after {
-            display: none;
-        }
-
-        /* Hero Section Spectaculaire */
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            padding-top: 80px;
-        }
-
-        .floating-shapes {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .math-symbol {
-            position: absolute;
-            color: rgba(255, 255, 255, 0.1);
-            font-size: 4rem;
+        .logo {
+            font-size: 1.8rem;
             font-weight: bold;
-            animation: floatSymbol 20s linear infinite;
+            letter-spacing: 1px;
         }
 
-        @keyframes floatSymbol {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
         }
 
-        .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 3rem;
-            position: relative;
-            z-index: 10;
+        .nav-links a {
             color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 150px 2rem 100px;
             text-align: center;
         }
 
         .hero h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 5rem;
-            font-weight: 900;
-            margin-bottom: 1.5rem;
+            font-size: 3rem;
+            margin-bottom: 1rem;
             animation: fadeInUp 1s ease;
-            line-height: 1.2;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .hero .highlight {
-            color: #FFE66D;
-            display: block;
-            font-size: 5.5rem;
         }
 
         .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 3rem;
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
             opacity: 0.95;
-            font-weight: 300;
-            animation: fadeInUp 1s ease 0.3s backwards;
+            animation: fadeInUp 1s ease 0.2s backwards;
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.6s backwards;
-        }
-
-        .btn-primary {
+        .cta-button {
+            display: inline-block;
             background: white;
             color: #667eea;
-            padding: 1.3rem 3rem;
+            padding: 1rem 2.5rem;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 1.2rem;
-            transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease 0.4s backwards;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            padding: 1.3rem 3rem;
-            border: 3px solid white;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.2rem;
-            transition: all 0.3s;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: #667eea;
-            transform: translateY(-5px);
-        }
-
-        /* Stats Section */
-        .stats {
-            background: white;
-            padding: 4rem 3rem;
-            box-shadow: 0 -10px 50px rgba(0,0,0,0.1);
-            position: relative;
-            z-index: 100;
-            margin-top: -50px;
-            border-radius: 30px 30px 0 0;
-        }
-
-        .stats-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-            text-align: center;
-        }
-
-        .stat-item {
-            padding: 1rem;
-        }
-
-        .stat-number {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            color: #666;
-            font-weight: 600;
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
         /* Section générale */
         section {
-            padding: 6rem 3rem;
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 5rem 2rem;
         }
 
-        .section-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 900;
+        h2 {
+            font-size: 2.5rem;
             text-align: center;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            margin-bottom: 3rem;
+            color: #667eea;
         }
 
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 4rem;
-            font-weight: 300;
-        }
-
-        /* Professeurs Section avec design premium */
-        .prof-grid {
+        /* Professeurs Section */
+        .professeurs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 4rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
         }
 
         .prof-card {
             background: white;
-            border-radius: 30px;
-            padding: 3rem;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
         }
 
         .prof-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
         }
 
-        .prof-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #FFE66D);
-        }
-
-        .prof-badge {
+        .prof-icon {
             width: 120px;
             height: 120px;
-            margin: 0 auto 2rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 50%;
+            margin: 0 auto 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            font-size: 3rem;
+            color: white;
         }
 
         .prof-card h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 700;
+            font-size: 1.8rem;
             margin-bottom: 0.5rem;
             color: #333;
-            text-align: center;
         }
 
-        .prof-title {
-            text-align: center;
-            font-size: 1.2rem;
+        .prof-card .titre {
             color: #667eea;
             font-weight: 600;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
         }
 
-        .prof-experience {
-            text-align: center;
-            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 700;
-            display: inline-block;
-            margin: 0 auto 2rem;
-            display: block;
-            width: fit-content;
-        }
-
-        .prof-description {
+        .prof-card p {
             color: #666;
+            margin-bottom: 1.5rem;
             line-height: 1.8;
-            margin-bottom: 2rem;
-            font-size: 1.05rem;
         }
 
         .prof-links {
             display: flex;
             gap: 1rem;
+            justify-content: center;
             flex-wrap: wrap;
         }
 
         .prof-link {
-            flex: 1;
-            min-width: 150px;
-            padding: 1rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: #667eea;
             color: white;
-            text-align: center;
             text-decoration: none;
-            border-radius: 15px;
-            font-weight: 600;
-            transition: all 0.3s;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: background 0.3s, transform 0.3s;
         }
 
         .prof-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            background: #764ba2;
+            transform: scale(1.05);
         }
 
-        /* Services avec icônes mathématiques */
-        .services {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 6rem 3rem;
-        }
-
+        /* Services Section */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            max-width: 1400px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
         .service-card {
-            background: white;
-            border-radius: 25px;
-            padding: 3rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 2rem;
             text-align: center;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s;
+            transition: transform 0.3s;
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
         }
 
         .service-icon {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 2rem;
-            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             font-size: 3rem;
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
-        }
-
-        .service-card:nth-child(2) .service-icon {
-            background: linear-gradient(135deg, #4ECDC4, #44A08D);
-        }
-
-        .service-card:nth-child(3) .service-icon {
-            background: linear-gradient(135deg, #FFE66D, #FF6B6B);
-        }
-
-        .service-card:nth-child(4) .service-icon {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin-bottom: 1rem;
         }
 
         .service-card h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
+            font-size: 1.4rem;
             margin-bottom: 1rem;
             color: #333;
         }
 
         .service-card p {
             color: #666;
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
-        /* Méthode Section */
-        .methode {
-            background: white;
-        }
-
-        .methode-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
-        .methode-step {
-            text-align: center;
-            padding: 2rem;
-            position: relative;
-        }
-
-        .step-number {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1.5rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: white;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-        }
-
-        .methode-step h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .methode-step p {
-            color: #666;
-            line-height: 1.8;
-        }
-
-        /* Témoignages */
-        .testimonials {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-        }
-
-        .testimonials .section-title {
-            color: white;
-            -webkit-text-fill-color: white;
-        }
-
-        .testimonials .section-subtitle {
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 25px;
-            padding: 3rem;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .testimonial-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        .testimonial-role {
-            opacity: 0.9;
             font-size: 0.95rem;
         }
 
-        .stars {
-            color: #FFE66D;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Contact Section Premium */
-        .contact {
-            background: white;
-            padding: 6rem 3rem;
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 5rem 2rem;
         }
 
         .contact-container {
             max-width: 800px;
             margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact-box {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            padding: 4rem;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-            color: white;
-        }
-
-        .contact-box h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .email-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
             background: white;
-            color: #667eea;
-            padding: 1.5rem 3rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1.3rem;
-            font-weight: 700;
-            transition: all 0.3s;
-            margin: 2rem 0;
-        }
-
-        .email-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .contact-info {
-            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-text {
+            color: #666;
+            text-align: center;
             line-height: 1.8;
-            opacity: 0.95;
+        }
+
+        /* Formulaire */
+        form {
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .contact-direct {
+            margin-top: 3rem;
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .contact-direct p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .email-link {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .email-link:hover {
+            color: #764ba2;
         }
 
         /* Footer */
         footer {
-            background: #1a1a2e;
+            background: #2d3748;
             color: white;
-            padding: 3rem;
             text-align: center;
+            padding: 2rem;
         }
 
         footer p {
@@ -680,7 +355,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(50px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -689,161 +364,211 @@
         }
 
         /* Responsive */
-        @media (max-width: 1024px) {
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-            .hero .highlight {
-                font-size: 4rem;
-            }
-            .section-title {
-                font-size: 2.5rem;
-            }
-        }
-
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .nav-menu {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
-            .hero .highlight {
-                font-size: 3rem;
-            }
+
             .hero p {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
-            .prof-grid, .services-grid, .testimonials-grid {
-                grid-template-columns: 1fr;
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .logo {
+                font-size: 1.4rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header avec navigation -->
+    <!-- Header -->
     <header>
         <nav>
-            <div class="logo-container">
-                <div class="logo-3d">
-                    <div class="shape-triangle"></div>
-                    <div class="shape-circle"></div>
-                    <div class="shape-square"></div>
-                </div>
-                <div class="logo-text">HORIZON MATH</div>
-            </div>
-            <ul class="nav-menu">
+            <div class="logo">Horizon Math Tutorat</div>
+            <ul class="nav-links">
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#professeurs">Professeurs</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#methode">Notre Méthode</a></li>
-                <li><a href="#contact" class="contact-btn">Contact</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section avec symboles mathématiques flottants -->
+    <!-- Hero Section -->
     <section id="accueil" class="hero">
-        <div class="floating-shapes">
-            <div class="math-symbol" style="left: 10%; animation-delay: 0s;">∑</div>
-            <div class="math-symbol" style="left: 25%; animation-delay: 3s;">π</div>
-            <div class="math-symbol" style="left: 40%; animation-delay: 6s;">∫</div>
-            <div class="math-symbol" style="left: 55%; animation-delay: 9s;">√</div>
-            <div class="math-symbol" style="left: 70%; animation-delay: 12s;">∞</div>
-            <div class="math-symbol" style="left: 85%; animation-delay: 15s;">α</div>
-        </div>
-        <div class="hero-content">
-            <h1>
-                Transformez Votre
-                <span class="highlight">PASSION DES MATHS</span>
-                En RÉUSSITE
-            </h1>
-            <p>Des professeurs d'exception pour des résultats exceptionnels. Plus de 10 ans d'expérience combinée au service de votre excellence.</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn-primary">Commencer Maintenant</a>
-                <a href="#professeurs" class="btn-secondary">Découvrir Nos Experts</a>
-            </div>
-        </div>
+        <h1>Maîtrisez les Mathématiques</h1>
+        <p>Cours particuliers avec des professeurs expérimentés et passionnés</p>
+        <a href="#contact" class="cta-button">Contactez-nous</a>
     </section>
-
-    <!-- Stats Section -->
-    <div class="stats">
-        <div class="stats-grid">
-            <div class="stat-item">
-                <div class="stat-number">10+</div>
-                <div class="stat-label">Années d'Expérience</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Satisfaction Client</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">500+</div>
-                <div class="stat-label">Élèves Accompagnés</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">95%</div>
-                <div class="stat-label">Taux de Réussite</div>
-            </div>
-        </div>
-    </div>
 
     <!-- Professeurs Section -->
     <section id="professeurs">
-        <h2 class="section-title">VOS EXPERTS EN MATHÉMATIQUES</h2>
-        <p class="section-subtitle">Une équipe d'élite composée de passionnés et de pédagogues expérimentés</p>
-        
-        <div class="prof-grid">
+        <h2>Nos Professeurs Experts</h2>
+        <div class="professeurs-grid">
             <div class="prof-card">
-                <div class="prof-badge">🎓</div>
+                <div class="prof-icon">📐</div>
                 <h3>Yassine Ait Mohamed</h3>
-                <div class="prof-title">Professeur Expert en Mathématiques</div>
-                <div class="prof-experience">⭐ 8 Années d'Excellence</div>
-                <p class="prof-description">
-                    <strong>Un mentor dévoué qui transforme les difficultés en succès.</strong> Avec 8 années d'expérience intensive en enseignement particulier, Yassine maîtrise l'art de rendre les mathématiques accessibles et passionnantes. Sa pédagogie sur mesure s'adapte à chaque profil d'élève, du collège au lycée. Résultats garantis et progression rapide !
-                </p>
+                <p class="titre">Professeur de Mathématiques</p>
+                <p>Fort de 8 années d'expérience en enseignement particulier, Yassine accompagne les élèves avec patience et expertise pour leur garantir la réussite en mathématiques.</p>
                 <div class="prof-links">
-                    <a href="https://www.voscours.fr/professeur/yassine-ait-mohamed.htm" target="_blank" class="prof-link">📋 Voir Profil Voscours</a>
-                    <a href="https://yassineaitmohamed.github.io/index.html" target="_blank" class="prof-link">🌐 Site Personnel</a>
+                    <a href="https://www.voscours.fr/professeur/yassine-ait-mohamed.htm" target="_blank" class="prof-link">Profil Voscours</a>
+                    <a href="https://yassineaitmohamed.github.io/index.html" target="_blank" class="prof-link">Page Personnelle</a>
                 </div>
             </div>
 
             <div class="prof-card">
-                <div class="prof-badge">🔬</div>
+                <div class="prof-icon">🎓</div>
                 <h3>Hamza Bakhouch</h3>
-                <div class="prof-title">Doctorant & Chercheur en Mathématiques</div>
-                <div class="prof-experience">🎓 Doctorat à l'Université du Portugal</div>
-                <p class="prof-description">
-                    <strong>L'alliance parfaite entre recherche de pointe et pédagogie moderne.</strong> Actuellement doctorant à l'Université du Portugal, Hamza apporte une expertise académique de haut niveau combinée à 2 années d'enseignement particulier. Il excelle dans la préparation aux examens difficiles et offre une vision approfondie des mathématiques avancées.
-                </p>
+                <p class="titre">Doctorant en Mathématiques</p>
+                <p>Étudiant en doctorat à l'Université du Portugal et professeur particulier depuis 2 ans, Hamza combine recherche académique et pédagogie pour offrir un enseignement de haut niveau.</p>
             </div>
         </div>
     </section>
 
-    <!-- Services -->
-    <section class="services">
-        <h2 class="section-title">NOS SERVICES SUR MESURE</h2>
-        <p class="section-subtitle">Des solutions adaptées à chaque besoin, chaque niveau, chaque ambition</p>
-        
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Nos Services</h2>
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-icon">👨‍🏫</div>
-                <h3>Cours Particuliers</h3>
-                <p>Un accompagnement 100% personnalisé en tête-à-tête. Idéal pour progresser rapidement, combler les lacunes et viser l'excellence. Planning flexible adapté à votre emploi du temps.</p>
+                <div class="service-icon">👤</div>
+                <h3>Tutorat Individuel</h3>
+                <p>Accompagnement personnalisé adapté aux besoins spécifiques de chaque élève</p>
             </div>
 
             <div class="service-card">
                 <div class="service-icon">📝</div>
-                <h3>Préparation Intensive</h3>
-                <p>Programmes ciblés pour réussir vos examens (Brevet, Bac, Concours). Méthodes éprouvées, exercices types, et stratégies gagnantes pour maximiser vos résultats.</p>
+                <h3>Préparation aux Examens</h3>
+                <p>Stratégies et révisions ciblées pour réussir vos examens et concours</p>
             </div>
 
             <div class="service-card">
                 <div class="service-icon">📚</div>
-                <h3>Soutien Continu</h3>
-                <p>Un suivi régulier pour consolider vos a
+                <h3>Aide aux Devoirs</h3>
+                <p>Soutien régulier pour consolider les connaissances et gagner en autonomie</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>Cours en Ligne</h3>
+                <p>Flexibilité totale avec des cours à distance efficaces et interactifs</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Contactez-nous</h2>
+                <p class="contact-text" style="margin-bottom: 2rem;">
+                    Remplissez le formulaire ci-dessous et nous vous répondrons rapidement !
+                </p>
+            </div>
+
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nom complet *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Téléphone</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Sujet *</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Sélectionnez un sujet</option>
+                        <option value="Tutorat individuel">Tutorat individuel</option>
+                        <option value="Préparation aux examens">Préparation aux examens</option>
+                        <option value="Aide aux devoirs">Aide aux devoirs</option>
+                        <option value="Cours en ligne">Cours en ligne</option>
+                        <option value="Autre">Autre demande</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Envoyer le message</button>
+            </form>
+
+            <div class="contact-direct">
+                <p>Ou contactez-nous directement :</p>
+                <a href="mailto:contact.mathinfostutorat@yahoo.com" class="email-link">
+                    ✉️ contact.mathinfostutorat@yahoo.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Horizon Math Tutorat. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling pour les liens de navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Gestion du formulaire
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Récupérer les données du formulaire
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            // Créer le contenu de l'email
+            const subject = encodeURIComponent('Nouveau message - ' + data.subject);
+            const body = encodeURIComponent(
+                `Nom: ${data.name}\n` +
+                `Email: ${data.email}\n` +
+                `Téléphone: ${data.phone || 'Non fourni'}\n` +
+                `Sujet: ${data.subject}\n\n` +
+                `Message:\n${data.message}`
+            );
+
+            // Ouvrir le client email
+            window.location.href = `mailto:contact.mathinfostutorat@yahoo.com?subject=${subject}&body=${body}`;
+
+            // Message de confirmation
+            alert('Votre client email va s\'ouvrir. Si cela ne fonctionne pas, envoyez-nous un email directement à contact.mathinfostutorat@yahoo.com');
+            
+            // Réinitialiser le formulaire
+            form.reset();
+        });
+    </script>
+</body>
+</html>
