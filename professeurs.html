@@ -3,90 +3,328 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horizon Math Tutorat - Nos Professeurs</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Professeurs - Horizon Math Tutorat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: #1a237e;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background: #ff6f00;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            color: white;
+            padding: 150px 2rem 80px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .prof-details {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+            margin-bottom: 5rem;
+            padding: 3rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .prof-details:nth-child(even) {
+            grid-template-columns: 2fr 1fr;
+        }
+
+        .prof-photo {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: white;
+            margin: 0 auto;
+        }
+
+        .prof-info h2 {
+            color: #1a237e;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .prof-titre {
+            color: #ff6f00;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .prof-info p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .expertise-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .expertise-list h3 {
+            color: #1a237e;
+            margin-bottom: 1rem;
+        }
+
+        .expertise-list li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .expertise-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ff6f00;
+            font-weight: bold;
+        }
+
+        .prof-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .prof-link {
+            padding: 0.8rem 1.8rem;
+            background: #1a237e;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .prof-link:hover {
+            background: #3949ab;
+        }
+
+        .qualites-section {
+            background: #f5f5f5;
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .qualites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto 0;
+        }
+
+        .qualite-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .qualite-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .qualite-card h3 {
+            color: #1a237e;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: #1a237e;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .prof-details {
+                grid-template-columns: 1fr;
+            }
+
+            .prof-details:nth-child(even) {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Horizon Math Tutorat</h1>
         <nav>
-            <a href="index.html">Accueil</a>
-            <a href="professeurs.html">Professeurs</a>
-            <a href="annonces.html">Annonces</a>
-            <a href="apropos.html">À propos</a>
-            <a href="contact.html">Contact</a>
+            <div class="logo">Horizon Math Tutorat</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="professeurs.html">Professeurs</a></li>
+                <li><a href="tarifs.html">Tarifs</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="contact.html" class="btn-primary">Nous contacter</a>
         </nav>
     </header>
 
-    <main>
-        <h2>Notre Équipe de Tuteurs</h2>
-        
-        <p>Nos tuteurs sont des professionnels passionnés par l'enseignement des mathématiques. Chacun apporte son expertise et son approche unique pour aider les élèves à atteindre leurs objectifs académiques.</p>
+    <div class="page-header">
+        <h1>Nos Professeurs</h1>
+        <p>Des experts passionnés à votre service</p>
+    </div>
 
-        <div class="professor-card">
-            <div class="professor-name">Marie-Claude Dubois</div>
-            <div class="professor-title">Tutrice principale - Mathématiques secondaire et cégep</div>
-            <div class="professor-description">
-                <p>Détentrice d'un baccalauréat en mathématiques de l'Université de Montréal et d'un certificat en enseignement, Marie-Claude possède plus de 8 ans d'expérience en tutorat privé. Elle se spécialise dans la préparation aux examens du ministère et excelle dans la simplification des concepts complexes.</p>
-            </div>
-            <div class="professor-specialties">Spécialités: Mathématiques CST, TS, SN, Calcul différentiel et intégral</div>
-            <div class="professor-contact">
-                Courriel: <a href="mailto:mc.dubois@horizonmath.com">mc.dubois@horizonmath.com</a>
+    <section>
+        <div class="prof-details">
+            <div class="prof-photo">📐</div>
+            <div class="prof-info">
+                <h2>Yassine Ait Mohamed</h2>
+                <div class="prof-titre">Professeur de Mathématiques</div>
+                
+                <p>Fort de 8 années d'expérience en enseignement particulier, Yassine a accompagné des centaines d'élèves dans leur parcours mathématique. Sa passion pour l'enseignement et sa patience exemplaire lui permettent de créer un environnement d'apprentissage stimulant et encourageant.</p>
+                
+                <p>Yassine excelle dans l'identification des lacunes de ses élèves et dans l'adaptation de ses méthodes pédagogiques pour garantir une compréhension profonde et durable des concepts mathématiques.</p>
+                
+                <ul class="expertise-list">
+                    <h3>Domaines d'expertise :</h3>
+                    <li>Mathématiques primaire et secondaire</li>
+                    <li>Préparation aux examens ministériels</li>
+                    <li>Algèbre et géométrie</li>
+                    <li>Résolution de problèmes complexes</li>
+                    <li>Développement de stratégies d'apprentissage</li>
+                </ul>
+                
+                <div class="prof-links">
+                    <a href="https://www.voscours.fr/professeur/yassine-ait-mohamed.htm" target="_blank" class="prof-link">Profil Voscours</a>
+                    <a href="https://yassineaitmohamed.github.io/index.html" target="_blank" class="prof-link">Page Personnelle</a>
+                </div>
             </div>
         </div>
 
-        <div class="professor-card">
-            <div class="professor-name">Alexandre Tremblay</div>
-            <div class="professor-title">Tuteur - Mathématiques primaire et secondaire</div>
-            <div class="professor-description">
-                <p>Enseignant au secondaire pendant 5 ans avant de se consacrer au tutorat privé, Alexandre apporte une connaissance approfondie du curriculum québécois. Son approche ludique et encourageante aide les élèves à développer leur confiance en mathématiques.</p>
+        <div class="prof-details">
+            <div class="prof-info">
+                <h2>Hamza Bakhouch</h2>
+                <div class="prof-titre">Doctorant en Mathématiques</div>
+                
+                <p>Actuellement étudiant en doctorat en mathématiques à l'Université du Portugal, Hamza apporte une perspective académique unique à son enseignement. Avec 2 ans d'expérience en tutorat particulier, il combine excellence théorique et pédagogie pratique.</p>
+                
+                <p>Sa formation de haut niveau lui permet d'accompagner les élèves du secondaire jusqu'au niveau universitaire, en offrant des explications claires et rigoureuses des concepts les plus complexes.</p>
+                
+                <ul class="expertise-list">
+                    <h3>Domaines d'expertise :</h3>
+                    <li>Mathématiques avancées (collégial et universitaire)</li>
+                    <li>Calcul différentiel et intégral</li>
+                    <li>Algèbre linéaire</li>
+                    <li>Statistiques et probabilités</li>
+                    <li>Recherche mathématique</li>
+                </ul>
             </div>
-            <div class="professor-specialties">Spécialités: Mathématiques primaire, 1ère à 3e secondaire, Soutien aux élèves en difficulté</div>
-            <div class="professor-contact">
-                Courriel: <a href="mailto:a.tremblay@horizonmath.com">a.tremblay@horizonmath.com</a>
-            </div>
+            <div class="prof-photo">🎓</div>
         </div>
+    </section>
 
-        <div class="professor-card">
-            <div class="professor-name">Sophie Lavoie</div>
-            <div class="professor-title">Tutrice - Mathématiques secondaire et sciences</div>
-            <div class="professor-description">
-                <p>Ingénieure de formation avec une maîtrise en génie mécanique, Sophie démontre l'application concrète des mathématiques dans la vie réelle. Elle excelle dans l'enseignement des mathématiques avancées et la préparation aux programmes préuniversitaires.</p>
+    <div class="qualites-section">
+        <h2 style="text-align: center; color: #1a237e; margin-bottom: 2rem;">Pourquoi Choisir Nos Professeurs</h2>
+        <div class="qualites-grid">
+            <div class="qualite-card">
+                <div class="qualite-icon">🎯</div>
+                <h3>Expertise Reconnue</h3>
+                <p>Des années d'expérience en enseignement et une formation de haut niveau</p>
             </div>
-            <div class="professor-specialties">Spécialités: Mathématiques TS, SN, Mathématiques 536, Physique</div>
-            <div class="professor-contact">
-                Courriel: <a href="mailto:s.lavoie@horizonmath.com">s.lavoie@horizonmath.com</a>
-            </div>
-        </div>
 
-        <div class="professor-card">
-            <div class="professor-name">David Chen</div>
-            <div class="professor-title">Tuteur - Mathématiques avancées et compétitions</div>
-            <div class="professor-description">
-                <p>Diplômé en mathématiques pures de McGill University, David a remporté plusieurs distinctions en compétitions mathématiques durant ses études. Il se spécialise dans la préparation aux olympiades mathématiques et l'enrichissement pour les élèves doués.</p>
+            <div class="qualite-card">
+                <div class="qualite-icon">❤️</div>
+                <h3>Passion Pédagogique</h3>
+                <p>Un amour sincère pour l'enseignement et la réussite des élèves</p>
             </div>
-            <div class="professor-specialties">Spécialités: Mathématiques enrichies, Olympiades mathématiques, Algèbre avancée</div>
-            <div class="professor-contact">
-                Courriel: <a href="mailto:d.chen@horizonmath.com">d.chen@horizonmath.com</a>
-            </div>
-        </div>
 
-        <div class="professor-card">
-            <div class="professor-name">Isabelle Gagnon</div>
-            <div class="professor-title">Tutrice - Mathématiques primaire et adaptation scolaire</div>
-            <div class="professor-description">
-                <p>Spécialisée en orthopédagogie, Isabelle possède une expertise unique pour accompagner les élèves ayant des troubles d'apprentissage. Elle utilise des méthodes multisensorielles et adaptées pour rendre les mathématiques accessibles à tous.</p>
+            <div class="qualite-card">
+                <div class="qualite-icon">🤝</div>
+                <h3>Approche Personnalisée</h3>
+                <p>Adaptation aux besoins et au rythme de chaque élève</p>
             </div>
-            <div class="professor-specialties">Spécialités: Mathématiques primaire, TDAH, Dyslexie, Dyscalculie</div>
-            <div class="professor-contact">
-                Courriel: <a href="mailto:i.gagnon@horizonmath.com">i.gagnon@horizonmath.com</a>
+
+            <div class="qualite-card">
+                <div class="qualite-icon">💪</div>
+                <h3>Résultats Garantis</h3>
+                <p>Méthodes éprouvées pour améliorer les performances scolaires</p>
             </div>
         </div>
-    </main>
+    </div>
 
     <footer>
         <p>&copy; 2026 Horizon Math Tutorat. Tous droits réservés.</p>
-        <p>123 Rue de l'Éducation, Montréal, QC H3B 2E7 | (514) 123-4567 | info@horizonmath.com</p>
+        <p>Email: contact.mathinfostutorat@yahoo.com</p>
     </footer>
 </body>
 </html>
