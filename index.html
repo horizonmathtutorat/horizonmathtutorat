@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horizon Math Tutorat - Excellence en Mathématiques</title>
+    <title>Horizon Math Tutorat - Excellence Académique</title>
     <style>
+        /* ===== RESET & BASE STYLES ===== */
         * {
             margin: 0;
             padding: 0;
@@ -12,454 +13,804 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow-x: hidden;
-            background: linear-gradient(135deg, #002147 0%, #1a472a 50%, #004d40 100%);
-            color: #fff;
-            position: relative;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
         }
 
-        /* Arrière-plan animé fluide */
-        .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .wave {
-            position: absolute;
-            width: 200%;
-            height: 100%;
-            background: radial-gradient(ellipse at center, rgba(0, 123, 255, 0.1) 0%, transparent 70%);
-            animation: wave 20s ease-in-out infinite;
-        }
-
-        .wave:nth-child(2) {
-            animation: wave 25s ease-in-out infinite reverse;
-            background: radial-gradient(ellipse at center, rgba(26, 71, 42, 0.15) 0%, transparent 70%);
-        }
-
-        .wave:nth-child(3) {
-            animation: wave 30s ease-in-out infinite;
-            background: radial-gradient(ellipse at center, rgba(0, 77, 64, 0.1) 0%, transparent 70%);
-        }
-
-        @keyframes wave {
-            0%, 100% { transform: translateX(0) translateY(0); }
-            25% { transform: translateX(-10%) translateY(-5%); }
-            50% { transform: translateX(0) translateY(-10%); }
-            75% { transform: translateX(10%) translateY(-5%); }
-        }
-
-        /* Symboles mathématiques flottants */
-        .math-symbols {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .math-symbol {
-            position: absolute;
-            font-size: 2rem;
-            opacity: 0.3;
-            animation: float 15s infinite ease-in-out;
-            text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
-            font-weight: bold;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg) scale(1);
-                opacity: 0.3;
-            }
-            50% {
-                transform: translateY(-100px) rotate(360deg) scale(1.2);
-                opacity: 0.6;
-            }
-        }
-
-        /* Container principal */
         .container {
-            position: relative;
-            z-index: 2;
-            max-width: 1400px;
+            width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Header avec titre animé */
-        header {
-            padding: 40px 0;
-            text-align: center;
-            background: rgba(0, 33, 71, 0.3);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid rgba(0, 123, 255, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ===== MONSIEUR MATH COLOR PALETTE & TYPOGRAPHY ===== */
+        :root {
+            --primary-blue: #2E5BFF;
+            --primary-blue-dark: #1a3cbb;
+            --accent-green: #00D4AA;
+            --text-dark: #2E384D;
+            --text-light: #8798AD;
+            --background-light: #F8F9FA;
+            --border-color: #E0E7FF;
+            --white: #FFFFFF;
+            --shadow: 0 4px 12px rgba(46, 91, 255, 0.08);
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--text-dark);
+            font-weight: 700;
+            line-height: 1.2;
         }
 
         h1 {
-            font-size: 4rem;
-            background: linear-gradient(45deg, #007bff, #00e676, #00bcd4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: titleGlow 3s ease-in-out infinite, titleMove 4s ease-in-out infinite;
-            text-shadow: 0 0 30px rgba(0, 123, 255, 0.5);
-            font-weight: 900;
-            letter-spacing: 2px;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
-        @keyframes titleGlow {
-            0%, 100% {
-                filter: brightness(1) drop-shadow(0 0 10px rgba(0, 123, 255, 0.5));
-            }
-            50% {
-                filter: brightness(1.3) drop-shadow(0 0 20px rgba(0, 230, 118, 0.8));
-            }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
         }
 
-        @keyframes titleMove {
-            0%, 100% {
-                transform: translateY(0) scale(1);
-            }
-            50% {
-                transform: translateY(-10px) scale(1.02);
-            }
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-green);
+            border-radius: 2px;
         }
 
-        nav {
-            margin-top: 30px;
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-center h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--accent-green);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
         }
 
         nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 12px 30px;
-            background: rgba(0, 123, 255, 0.2);
-            border: 2px solid rgba(0, 123, 255, 0.5);
-            border-radius: 30px;
-            transition: all 0.3s ease;
             font-weight: 600;
-            backdrop-filter: blur(5px);
-        }
-
-        nav a:hover {
-            background: rgba(0, 123, 255, 0.4);
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(0, 123, 255, 0.3);
-            border-color: #00e676;
-        }
-
-        /* Section intro */
-        .intro {
-            margin: 60px 0;
-            text-align: center;
-            background: rgba(0, 33, 71, 0.4);
-            padding: 50px;
-            border-radius: 30px;
-            backdrop-filter: blur(15px);
-            border: 2px solid rgba(0, 123, 255, 0.3);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-            animation: fadeInUp 1s ease;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .intro p {
-            font-size: 1.4rem;
-            line-height: 2;
-            color: #e0f2f1;
-        }
-
-        /* Sections */
-        h2 {
-            font-size: 3rem;
-            margin: 60px 0 40px;
-            text-align: center;
-            background: linear-gradient(45deg, #00bcd4, #00e676);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 1s ease;
-        }
-
-        /* Services Cards 3D */
-        .service-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-bottom: 80px;
-        }
-
-        .service-item {
-            background: linear-gradient(135deg, rgba(0, 33, 71, 0.6) 0%, rgba(0, 77, 64, 0.6) 100%);
-            padding: 40px;
-            border-radius: 25px;
-            backdrop-filter: blur(20px);
-            border: 2px solid rgba(0, 123, 255, 0.4);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            color: var(--text-light);
+            padding: 0.5rem 0;
             position: relative;
-            overflow: hidden;
-            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
-            animation: fadeInUp 1s ease;
+            transition: color 0.3s ease;
         }
 
-        .service-item::before {
+        nav a:hover,
+        nav a.active {
+            color: var(--primary-blue);
+        }
+
+        nav a:hover:after,
+        nav a.active:after {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(0, 230, 118, 0.1) 0%, transparent 70%);
-            animation: rotate 10s linear infinite;
-            opacity: 0;
-            transition: opacity 0.5s;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-blue);
         }
 
-        .service-item:hover::before {
-            opacity: 1;
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            cursor: pointer;
         }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6f7ff 100%);
+            position: relative;
+            overflow: hidden;
         }
 
-        .service-item:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 25px 70px rgba(0, 230, 118, 0.4);
-            border-color: #00e676;
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
         }
 
-        .service-title {
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(46, 91, 255, 0.2);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(46, 91, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+            box-shadow: none;
+            margin-left: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(46, 91, 255, 0.05);
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(46, 91, 255, 0.15);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2E5BFF, #00D4AA);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* ===== PRICING SECTION ===== */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary-blue);
+            transform: scale(1.05);
+        }
+
+        .price-tag {
+            background-color: var(--accent-green);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin: 1rem 0;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        .pricing-features {
+            margin: 2rem 0;
+        }
+
+        .pricing-features li {
+            padding: 0.7rem 0;
+            color: var(--text-light);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
             font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 20px;
-            color: #00e676;
-            text-shadow: 0 0 15px rgba(0, 230, 118, 0.5);
+            color: var(--primary-blue);
+            display: block;
         }
 
-        .service-item p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #b2dfdb;
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
         }
 
-        /* Features List */
-        .features-list {
-            list-style: none;
-            background: rgba(0, 33, 71, 0.4);
-            padding: 50px;
-            border-radius: 25px;
-            backdrop-filter: blur(15px);
-            border: 2px solid rgba(0, 123, 255, 0.3);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-            margin-bottom: 80px;
+        /* ===== CONTACT SECTION ===== */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
         }
 
-        .features-list li {
-            font-size: 1.3rem;
-            padding: 20px;
-            margin: 15px 0;
-            background: rgba(0, 123, 255, 0.1);
-            border-left: 5px solid #00e676;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            animation: fadeInUp 1s ease;
+        .contact-info h3 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
         }
 
-        .features-list li:hover {
-            transform: translateX(15px);
-            background: rgba(0, 230, 118, 0.2);
-            box-shadow: 0 10px 30px rgba(0, 230, 118, 0.3);
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
         }
 
-        /* Contact */
-        .contact-info {
-            text-align: center;
-            background: rgba(0, 33, 71, 0.5);
-            padding: 50px;
-            border-radius: 25px;
-            backdrop-filter: blur(15px);
-            border: 2px solid rgba(0, 123, 255, 0.3);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-            margin-bottom: 60px;
-            font-size: 1.3rem;
-            line-height: 2.5;
+        .contact-info i {
+            color: var(--primary-blue);
+            width: 20px;
         }
 
-        .contact-info a {
-            color: #00e676;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
         }
 
-        .contact-info a:hover {
-            color: #00bcd4;
-            text-shadow: 0 0 15px rgba(0, 230, 118, 0.8);
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            outline: none;
+            border-color: var(--primary-blue);
         }
 
-        /* Footer */
+        /* ===== FOOTER ===== */
         footer {
-            background: rgba(0, 33, 71, 0.8);
-            padding: 40px;
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links h4,
+        .footer-social h4 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #b0b7c3;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-green);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary-blue);
+        }
+
+        .copyright {
             text-align: center;
-            backdrop-filter: blur(10px);
-            border-top: 2px solid rgba(0, 123, 255, 0.3);
-            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b0b7c3;
+            font-size: 0.9rem;
         }
 
-        footer p {
-            margin: 10px 0;
-            color: #b2dfdb;
-        }
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 992px) {
+            .hero .container,
+            .about-content {
+                flex-direction: column;
+            }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            h1 {
+            .hero h1 {
                 font-size: 2.5rem;
             }
 
+            h1 {
+                font-size: 2.2rem;
+            }
+
             h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                text-align: center;
+                padding: 0.8rem 0;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
                 font-size: 2rem;
             }
 
-            .service-list {
-                grid-template-columns: 1fr;
+            .section {
+                padding: 3rem 0;
             }
 
-            nav {
-                flex-direction: column;
-                gap: 15px;
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 1rem;
+                display: block;
+            }
+
+            .contact-wrapper {
+                padding: 2rem;
             }
         }
     </style>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="animated-bg">
-        <div class="wave"></div>
-        <div class="wave"></div>
-        <div class="wave"></div>
-    </div>
-
-    <div class="math-symbols" id="mathSymbols"></div>
-
-    <div class="container">
-        <header>
-            <h1>Horizon Math Tutorat</h1>
+    <!-- HEADER -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Horizon<span>Math</span></a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
             <nav>
-                <a href="#accueil">Accueil</a>
-                <a href="#professeurs">Professeurs</a>
-                <a href="#annonces">Annonces</a>
-                <a href="#apropos">À propos</a>
-                <a href="#contact">Contact</a>
+                <ul id="navMenu">
+                    <li><a href="#accueil" class="active">Accueil</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#tarifs">Tarifs</a></li>
+                    <li><a href="#apropos">À propos</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </nav>
-        </header>
+        </div>
+    </header>
 
-        <main>
-            <div class="intro">
-                <p>Horizon Math Tutorat offre des services d'excellence en mathématiques pour les élèves du primaire, secondaire et cégep. Notre équipe de tuteurs qualifiés et passionnés vous accompagne vers la réussite scolaire avec une approche innovante et personnalisée.</p>
+    <!-- HERO SECTION -->
+    <section class="hero" id="accueil">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Excellence en Mathématiques pour Tous les Niveaux</h1>
+                <p>Horizon Math Tutorat offre un accompagnement personnalisé par des tuteurs qualifiés pour les élèves du primaire, secondaire et cégep. Transformez vos défis en succès.</p>
+                <a href="#contact" class="btn">Commencer maintenant</a>
+                <a href="#services" class="btn btn-secondary">Voir nos services</a>
             </div>
+            <div class="hero-image">
+                <!-- Placeholder for an image. Replace src with your own image path -->
+                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Étudiant réussissant en mathématiques">
+            </div>
+        </div>
+    </section>
 
-            <h2>Nos Services</h2>
-            <div class="service-list">
-                <div class="service-item">
-                    <div class="service-title">🎓 Cours Privés</div>
-                    <p>Un accompagnement personnalisé et individuel adapté aux besoins spécifiques de chaque élève. Idéal pour ceux qui nécessitent une attention particulière ou qui souhaitent progresser rapidement vers l'excellence académique.</p>
+    <!-- SERVICES SECTION -->
+    <section class="section" id="services">
+        <div class="container">
+            <h2 class="text-center">Nos Services de Tutorat</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-user-graduate"></i></div>
+                    <h3>Cours Privés</h3>
+                    <p>Accompagnement individuel et sur mesure, adapté au rythme et aux objectifs spécifiques de l'élève pour une progression optimale.</p>
                 </div>
-                <div class="service-item">
-                    <div class="service-title">👥 Cours Semi-Privés</div>
-                    <p>Groupes de 2 à 3 élèves de niveau similaire. Cette formule combine les avantages de l'apprentissage collaboratif tout en maintenant une attention personnalisée. L'émulation entre pairs stimule la motivation et la réussite.</p>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-users"></i></div>
+                    <h3>Cours Semi-Privés</h3>
+                    <p>Apprentissage en petit groupe (2-3 élèves) pour favoriser la collaboration et la motivation tout en bénéficiant d'une attention personnalisée.</p>
                 </div>
-                <div class="service-item">
-                    <div class="service-title">💻 Cours en Ligne</div>
-                    <p>Sessions interactives via notre plateforme numérique de pointe. Flexibilité et confort sans compromettre la qualité de l'enseignement. Tableau blanc partagé, exercices interactifs et outils collaboratifs inclus.</p>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Cours en Ligne</h3>
+                    <p>Flexibilité totale avec nos sessions interactives en ligne, utilisant une plateforme moderne avec tableau blanc numérique et outils collaboratifs.</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <h2>Pourquoi Choisir Horizon Math</h2>
-            <ul class="features-list">
-                <li>✨ Tuteurs diplômés et expérimentés en enseignement des mathématiques</li>
-                <li>🎯 Approche pédagogique personnalisée adaptée au rythme de chaque élève</li>
-                <li>⏰ Horaires flexibles incluant soirs et fins de semaine</li>
-                <li>📚 Matériel pédagogique complémentaire de qualité fourni</li>
-                <li>📊 Suivi régulier des progrès et communication continue avec les parents</li>
-                <li>🏆 Préparation ciblée aux examens et épreuves ministérielles</li>
-                <li>🚀 Méthodologies innovantes pour stimuler l'apprentissage</li>
-                <li>💡 Développement de la confiance et de l'autonomie académique</li>
-            </ul>
-
-            <h2 id="contact">Contact</h2>
-            <div class="contact-info">
-                📞 Téléphone: <a href="tel:5141234567">(514) 123-4567</a><br>
-                📧 Courriel: <a href="mailto:info@horizonmath.com">info@horizonmath.com</a><br>
-                📍 Adresse: 123 Rue de l'Éducation, Montréal, QC H3B 2E7
+    <!-- PRICING SECTION -->
+    <section class="section" id="tarifs" style="background-color: var(--background-light);">
+        <div class="container">
+            <h2 class="text-center">Nos Forfaits</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="price-tag">Standard</div>
+                    <h3>Semi-Privé</h3>
+                    <div class="price">35$<span> / séance</span></div>
+                    <ul class="pricing-features">
+                        <li>Groupe de 2-3 élèves</li>
+                        <li>1h30 par séance</li>
+                        <li>Matériel inclus</li>
+                        <li>Suivi des progrès</li>
+                    </ul>
+                    <a href="#contact" class="btn">Choisir ce forfait</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="price-tag">Populaire</div>
+                    <h3>Privé</h3>
+                    <div class="price">50$<span> / séance</span></div>
+                    <ul class="pricing-features">
+                        <li>Cours 100% individuel</li>
+                        <li>1h30 par séance</li>
+                        <li>Plan personnalisé</li>
+                        <li>Support entre séances</li>
+                        <li>Rapports détaillés</li>
+                    </ul>
+                    <a href="#contact" class="btn">Choisir ce forfait</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="price-tag">Flexible</div>
+                    <h3>En Ligne</h3>
+                    <div class="price">45$<span> / séance</span></div>
+                    <ul class="pricing-features">
+                        <li>Cours particulier en ligne</li>
+                        <li>Plateforme interactive</li>
+                        <li>Horaires flexibles</li>
+                        <li>Enregistrement de séance</li>
+                    </ul>
+                    <a href="#contact" class="btn">Choisir ce forfait</a>
+                </div>
             </div>
-        </main>
+        </div>
+    </section>
 
-        <footer>
-            <p>&copy; 2026 Horizon Math Tutorat. Tous droits réservés.</p>
-            <p>Excellence en éducation mathématique</p>
-            <p>123 Rue de l'Éducation, Montréal, QC H3B 2E7 | (514) 123-4567 | info@horizonmath.com</p>
-        </footer>
-    </div>
+    <!-- ABOUT SECTION -->
+    <section class="section" id="apropos">
+        <div class="container">
+            <h2 class="text-center">Pourquoi Horizon Math ?</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Fondé avec la passion de transmettre les mathématiques de manière claire et accessible, Horizon Math se distingue par son approche pédagogique innovante et ses tuteurs soigneusement sélectionnés.</p>
+                    <p>Notre méthode : identifier les lacunes, renforcer la confiance et fournir les outils pour une autonomie durable. Nous préparons également spécifiquement aux examens ministériels et aux défis du cégep.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number">98%</span>
+                            <span class="stat-label">Satisfaction clients</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Élèves accompagnés</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">15</span>
+                            <span class="stat-label">Tuteurs experts</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Tuteur aidant un élève">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="text-center">Contactez-Nous</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Prenez rendez-vous pour une évaluation gratuite</h3>
+                    <p><i class="fas fa-phone"></i> <strong>Téléphone :</strong> (514) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> <strong>Courriel :</strong> info@horizonmath.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> <strong>Adresse :</strong> 123 Rue de l'Éducation, Montréal, QC H3B 2E7</p>
+                    <h3>Disponibilité</h3>
+                    <p><i class="fas fa-clock"></i> <strong>Lun-Ven :</strong> 8h - 21h</p>
+                    <p><i class="fas fa-clock"></i> <strong>Sam-Dim :</strong> 9h - 18h</p>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Votre nom complet" required>
+                        <input type="email" placeholder="Votre adresse courriel" required>
+                        <input type="tel" placeholder="Votre numéro de téléphone">
+                        <select required>
+                            <option value="" disabled selected>Choisissez un service</option>
+                            <option value="prive">Cours Privé</option>
+                            <option value="semi-prive">Cours Semi-Privé</option>
+                            <option value="en-ligne">Cours en Ligne</option>
+                            <option value="autre">Autre demande</option>
+                        </select>
+                        <textarea rows="5" placeholder="Votre message ou objectifs..." required></textarea>
+                        <button type="submit" class="btn" style="width: 100%;">Envoyer la demande</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">Horizon<span style="color: var(--accent-green);">Math</span></div>
+                    <p>Votre partenaire de confiance pour l'excellence en mathématiques, du primaire au cégep.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#tarifs">Tarifs</a></li>
+                        <li><a href="#apropos">À propos</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Suivez-Nous</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Horizon Math Tutorat. Tous droits réservés. | Excellence en éducation mathématique</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        // Générer des symboles mathématiques flottants
-        const mathSymbols = ['∫', '∑', 'π', '∞', '√', 'α', 'β', 'θ', '∂', '∆', 'Σ', 'Ω', '∈', '∀', '∃', '≠', '≤', '≥', '±', '×', '÷', 'φ', 'λ', 'μ'];
-        const container = document.getElementById('mathSymbols');
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
 
-        for (let i = 0; i < 30; i++) {
-            const symbol = document.createElement('div');
-            symbol.className = 'math-symbol';
-            symbol.textContent = mathSymbols[Math.floor(Math.random() * mathSymbols.length)];
-            symbol.style.left = Math.random() * 100 + '%';
-            symbol.style.top = Math.random() * 100 + '%';
-            symbol.style.animationDelay = Math.random() * 5 + 's';
-            symbol.style.animationDuration = (10 + Math.random() * 10) + 's';
-            symbol.style.fontSize = (1.5 + Math.random() * 2) + 'rem';
-            container.appendChild(symbol);
-        }
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
 
-        // Animation des éléments au scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
+        // Close menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.textContent = '☰';
+            });
+        });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 1s ease forwards';
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
                 }
             });
-        }, observerOptions);
+        });
 
-        document.querySelectorAll('.service-item, .features-list li').forEach(el => {
-            observer.observe(el);
+        // Simple form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci ! Votre demande a été envoyée. Nous vous contacterons dans les 24 heures.');
+            this.reset();
         });
     </script>
 </body>
