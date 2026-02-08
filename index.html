@@ -523,6 +523,14 @@
         <p>&copy; 2026 Horizon Math Tutorat. Tous droits réservés.</p>
     </footer>
 
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("YOUR_PUBLIC_KEY"); // Vous remplacerez ceci après l'inscription
+        })();
+    </script>
+
     <script>
         // Smooth scrolling pour les liens de navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -538,36 +546,31 @@
             });
         });
 
-        // Gestion du formulaire
+        // Gestion du formulaire avec EmailJS
         const form = document.getElementById('contactForm');
+        const submitBtn = form.querySelector('.submit-btn');
+        
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Récupérer les données du formulaire
-            const formData = new FormData(form);
-            const data = {};
-            formData.forEach((value, key) => {
-                data[key] = value;
-            });
+            // Désactiver le bouton pendant l'envoi
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Envoi en cours...';
 
-            // Créer le contenu de l'email
-            const subject = encodeURIComponent('Nouveau message - ' + data.subject);
-            const body = encodeURIComponent(
-                `Nom: ${data.name}\n` +
-                `Email: ${data.email}\n` +
-                `Téléphone: ${data.phone || 'Non fourni'}\n` +
-                `Sujet: ${data.subject}\n\n` +
-                `Message:\n${data.message}`
-            );
-
-            // Ouvrir le client email
-            window.location.href = `mailto:contact.mathinfostutorat@yahoo.com?subject=${subject}&body=${body}`;
-
-            // Message de confirmation
-            alert('Votre client email va s\'ouvrir. Si cela ne fonctionne pas, envoyez-nous un email directement à contact.mathinfostutorat@yahoo.com');
-            
-            // Réinitialiser le formulaire
-            form.reset();
+            // Envoyer l'email via EmailJS
+            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form)
+                .then(function(response) {
+                    // Succès
+                    alert('✅ Message envoyé avec succès ! Nous vous répondrons rapidement.');
+                    form.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Envoyer le message';
+                }, function(error) {
+                    // Erreur
+                    alert('❌ Erreur lors de l\'envoi. Veuillez nous contacter directement à : contact.mathinfostutorat@yahoo.com');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Envoyer le message';
+                });
         });
     </script>
 </body>
