@@ -15,12 +15,11 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            overflow-x: hidden;
         }
 
-        /* Header & Navigation */
+        /* Header */
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #1a237e;
             color: white;
             padding: 1rem 0;
             position: fixed;
@@ -40,9 +39,8 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: bold;
-            letter-spacing: 1px;
         }
 
         .nav-links {
@@ -62,9 +60,28 @@
             opacity: 0.8;
         }
 
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            background: #ff6f00;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #f57c00;
+        }
+
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
             color: white;
             padding: 150px 2rem 100px;
             text-align: center;
@@ -73,34 +90,32 @@
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
         }
 
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 2rem;
             opacity: 0.95;
-            animation: fadeInUp 1s ease 0.2s backwards;
         }
 
-        .cta-button {
+        .hero-cta {
             display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 1rem 2.5rem;
+            background: #ff6f00;
+            color: white;
+            padding: 1rem 3rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
+            font-size: 1.1rem;
             transition: transform 0.3s, box-shadow 0.3s;
-            animation: fadeInUp 1s ease 0.4s backwards;
         }
 
-        .cta-button:hover {
+        .hero-cta:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
 
-        /* Section générale */
+        /* Sections */
         section {
             max-width: 1200px;
             margin: 0 auto;
@@ -111,13 +126,51 @@
             font-size: 2.5rem;
             text-align: center;
             margin-bottom: 3rem;
-            color: #667eea;
+            color: #1a237e;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(26, 35, 126, 0.2);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a237e;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
         }
 
         /* Professeurs Section */
         .professeurs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 3rem;
             margin-top: 3rem;
         }
@@ -127,19 +180,13 @@
             border-radius: 20px;
             padding: 2.5rem;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
             text-align: center;
-        }
-
-        .prof-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
         }
 
         .prof-icon {
             width: 120px;
             height: 120px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
             border-radius: 50%;
             margin: 0 auto 1.5rem;
             display: flex;
@@ -152,11 +199,11 @@
         .prof-card h3 {
             font-size: 1.8rem;
             margin-bottom: 0.5rem;
-            color: #333;
+            color: #1a237e;
         }
 
         .prof-card .titre {
-            color: #667eea;
+            color: #ff6f00;
             font-weight: 600;
             margin-bottom: 1rem;
             font-size: 1.1rem;
@@ -176,60 +223,48 @@
         }
 
         .prof-link {
-            display: inline-block;
             padding: 0.6rem 1.5rem;
-            background: #667eea;
+            background: #1a237e;
             color: white;
             text-decoration: none;
             border-radius: 25px;
             font-size: 0.9rem;
-            transition: background 0.3s, transform 0.3s;
+            transition: background 0.3s;
         }
 
         .prof-link:hover {
-            background: #764ba2;
-            transform: scale(1.05);
+            background: #3949ab;
         }
 
-        /* Services Section */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            border-radius: 15px;
-            padding: 2rem;
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            color: white;
+            padding: 4rem 2rem;
             text-align: center;
-            transition: transform 0.3s;
         }
 
-        .service-card:hover {
-            transform: translateY(-5px);
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .service-icon {
+        .stat-item h3 {
             font-size: 3rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
+            color: #ff6f00;
         }
 
-        .service-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .service-card p {
-            color: #666;
-            font-size: 0.95rem;
+        .stat-item p {
+            font-size: 1.2rem;
         }
 
         /* Contact Section */
         .contact-section {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: #f5f5f5;
             padding: 5rem 2rem;
         }
 
@@ -240,26 +275,6 @@
             border-radius: 20px;
             padding: 3rem;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .contact-info {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .contact-info h2 {
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-text {
-            color: #666;
-            text-align: center;
-            line-height: 1.8;
-        }
-
-        /* Formulaire */
-        form {
-            margin-top: 2rem;
         }
 
         .form-group {
@@ -278,27 +293,22 @@
         .form-group textarea {
             width: 100%;
             padding: 0.8rem;
-            border: 2px solid #e2e8f0;
+            border: 2px solid #e0e0e0;
             border-radius: 8px;
             font-size: 1rem;
             font-family: inherit;
-            transition: border-color 0.3s;
         }
 
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #667eea;
-        }
-
-        .form-group textarea {
-            resize: vertical;
+            border-color: #1a237e;
         }
 
         .submit-btn {
             width: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #ff6f00;
             color: white;
             padding: 1rem 2rem;
             border: none;
@@ -306,61 +316,68 @@
             font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: background 0.3s;
         }
 
         .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            background: #f57c00;
         }
 
         .contact-direct {
             margin-top: 3rem;
             text-align: center;
             padding-top: 2rem;
-            border-top: 2px solid #e2e8f0;
-        }
-
-        .contact-direct p {
-            color: #666;
-            margin-bottom: 1rem;
+            border-top: 2px solid #e0e0e0;
         }
 
         .email-link {
             display: inline-block;
-            color: #667eea;
+            color: #1a237e;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: color 0.3s;
-        }
-
-        .email-link:hover {
-            color: #764ba2;
+            font-size: 1.2rem;
         }
 
         /* Footer */
         footer {
-            background: #2d3748;
+            background: #1a237e;
             color: white;
-            text-align: center;
-            padding: 2rem;
+            padding: 3rem 2rem;
         }
 
-        footer p {
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #ff6f00;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
             opacity: 0.8;
+            transition: opacity 0.3s;
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .footer-section a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         /* Responsive */
@@ -369,21 +386,12 @@
                 font-size: 2rem;
             }
 
-            .hero p {
-                font-size: 1.1rem;
+            .nav-links {
+                display: none;
             }
 
             h2 {
                 font-size: 2rem;
-            }
-
-            .nav-links {
-                gap: 1rem;
-                flex-wrap: wrap;
-            }
-
-            .logo {
-                font-size: 1.4rem;
             }
         }
     </style>
@@ -394,19 +402,53 @@
         <nav>
             <div class="logo">Horizon Math Tutorat</div>
             <ul class="nav-links">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#professeurs">Professeurs</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="professeurs.html">Professeurs</a></li>
+                <li><a href="tarifs.html">Tarifs</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn-primary">Nous contacter</a>
+            </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section id="accueil" class="hero">
-        <h1>Maîtrisez les Mathématiques</h1>
-        <p>Cours particuliers avec des professeurs expérimentés et passionnés</p>
-        <a href="#contact" class="cta-button">Contactez-nous</a>
+    <section class="hero">
+        <h1>Excellence en Mathématiques</h1>
+        <p>Cours particuliers avec des professeurs experts et passionnés</p>
+        <a href="#services" class="hero-cta">Découvrir nos services</a>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Nos Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📚</div>
+                <h3>Tutorat Individuel</h3>
+                <p>Accompagnement personnalisé pour tous les niveaux scolaires</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📝</div>
+                <h3>Préparation aux Examens</h3>
+                <p>Stratégies et révisions ciblées pour réussir vos examens</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Cours en Ligne</h3>
+                <p>Flexibilité totale avec des cours à distance efficaces</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>Aide aux Devoirs</h3>
+                <p>Soutien régulier pour consolider les connaissances</p>
+            </div>
+        </div>
     </section>
 
     <!-- Professeurs Section -->
@@ -417,7 +459,7 @@
                 <div class="prof-icon">📐</div>
                 <h3>Yassine Ait Mohamed</h3>
                 <p class="titre">Professeur de Mathématiques</p>
-                <p>Fort de 8 années d'expérience en enseignement particulier, Yassine accompagne les élèves avec patience et expertise pour leur garantir la réussite en mathématiques.</p>
+                <p>8 années d'expérience en enseignement particulier. Yassine accompagne les élèves avec patience et expertise pour garantir leur réussite en mathématiques.</p>
                 <div class="prof-links">
                     <a href="https://www.voscours.fr/professeur/yassine-ait-mohamed.htm" target="_blank" class="prof-link">Profil Voscours</a>
                     <a href="https://yassineaitmohamed.github.io/index.html" target="_blank" class="prof-link">Page Personnelle</a>
@@ -428,89 +470,70 @@
                 <div class="prof-icon">🎓</div>
                 <h3>Hamza Bakhouch</h3>
                 <p class="titre">Doctorant en Mathématiques</p>
-                <p>Étudiant en doctorat à l'Université du Portugal et professeur particulier depuis 2 ans, Hamza combine recherche académique et pédagogie pour offrir un enseignement de haut niveau.</p>
+                <p>Étudiant en doctorat à l'Université du Portugal et professeur particulier depuis 2 ans. Hamza combine recherche académique et pédagogie de haut niveau.</p>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services">
-        <h2>Nos Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">👤</div>
-                <h3>Tutorat Individuel</h3>
-                <p>Accompagnement personnalisé adapté aux besoins spécifiques de chaque élève</p>
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>10+</h3>
+                <p>Années d'expérience combinées</p>
             </div>
-
-            <div class="service-card">
-                <div class="service-icon">📝</div>
-                <h3>Préparation aux Examens</h3>
-                <p>Stratégies et révisions ciblées pour réussir vos examens et concours</p>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Satisfaction des élèves</p>
             </div>
-
-            <div class="service-card">
-                <div class="service-icon">📚</div>
-                <h3>Aide aux Devoirs</h3>
-                <p>Soutien régulier pour consolider les connaissances et gagner en autonomie</p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">🎯</div>
-                <h3>Cours en Ligne</h3>
-                <p>Flexibilité totale avec des cours à distance efficaces et interactifs</p>
+            <div class="stat-item">
+                <h3>7j/7</h3>
+                <p>Disponibilité flexible</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact-section">
+    <section class="contact-section">
         <div class="contact-container">
-            <div class="contact-info">
-                <h2>Contactez-nous</h2>
-                <p class="contact-text" style="margin-bottom: 2rem;">
-                    Remplissez le formulaire ci-dessous et nous vous répondrons rapidement !
-                </p>
-            </div>
-
+            <h2>Contactez-nous</h2>
             <form id="contactForm">
                 <div class="form-group">
-                    <label for="name">Nom complet *</label>
-                    <input type="text" id="name" name="name" required>
+                    <label>Nom complet *</label>
+                    <input type="text" name="name" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" required>
+                    <label>Email *</label>
+                    <input type="email" name="email" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="phone">Téléphone</label>
-                    <input type="tel" id="phone" name="phone">
+                    <label>Téléphone</label>
+                    <input type="tel" name="phone">
                 </div>
 
                 <div class="form-group">
-                    <label for="subject">Sujet *</label>
-                    <select id="subject" name="subject" required>
+                    <label>Sujet *</label>
+                    <select name="subject" required>
                         <option value="">Sélectionnez un sujet</option>
                         <option value="Tutorat individuel">Tutorat individuel</option>
                         <option value="Préparation aux examens">Préparation aux examens</option>
-                        <option value="Aide aux devoirs">Aide aux devoirs</option>
                         <option value="Cours en ligne">Cours en ligne</option>
                         <option value="Autre">Autre demande</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="message">Message *</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <label>Message *</label>
+                    <textarea name="message" rows="5" required></textarea>
                 </div>
 
                 <button type="submit" class="submit-btn">Envoyer le message</button>
             </form>
 
             <div class="contact-direct">
-                <p>Ou contactez-nous directement :</p>
+                <p>Ou écrivez-nous directement :</p>
                 <a href="mailto:contact.mathinfostutorat@yahoo.com" class="email-link">
                     ✉️ contact.mathinfostutorat@yahoo.com
                 </a>
@@ -520,57 +543,59 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Horizon Math Tutorat. Tous droits réservés.</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Horizon Math Tutorat</h3>
+                <p>Excellence en enseignement des mathématiques</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="professeurs.html">Professeurs</a></li>
+                    <li><a href="tarifs.html">Tarifs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: contact.mathinfostutorat@yahoo.com</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Horizon Math Tutorat. Tous droits réservés.</p>
+        </div>
     </footer>
 
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function(){
-            emailjs.init("YOUR_PUBLIC_KEY"); // Vous remplacerez ceci après l'inscription
-        })();
-    </script>
-
     <script>
-        // Smooth scrolling pour les liens de navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
 
-        // Gestion du formulaire avec EmailJS
-        const form = document.getElementById('contactForm');
-        const submitBtn = form.querySelector('.submit-btn');
-        
-        form.addEventListener('submit', function(e) {
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => { data[key] = value; });
             
-            // Désactiver le bouton pendant l'envoi
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Envoi en cours...';
-
-            // Envoyer l'email via EmailJS
-            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form)
-                .then(function(response) {
-                    // Succès
-                    alert('✅ Message envoyé avec succès ! Nous vous répondrons rapidement.');
-                    form.reset();
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Envoyer le message';
-                }, function(error) {
-                    // Erreur
-                    alert('❌ Erreur lors de l\'envoi. Veuillez nous contacter directement à : contact.mathinfostutorat@yahoo.com');
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Envoyer le message';
-                });
+            const subject = encodeURIComponent('Nouveau message - ' + data.subject);
+            const body = encodeURIComponent(
+                `Nom: ${data.name}\nEmail: ${data.email}\nTéléphone: ${data.phone || 'Non fourni'}\nSujet: ${data.subject}\n\nMessage:\n${data.message}`
+            );
+            
+            window.location.href = `mailto:contact.mathinfostutorat@yahoo.com?subject=${subject}&body=${body}`;
+            alert('✅ Votre client email va s\'ouvrir pour envoyer le message.');
+            this.reset();
         });
     </script>
 </body>
