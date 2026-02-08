@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Horizon Math Tutorat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: #1a237e;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background: #ff6f00;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            color: white;
+            padding: 150px 2rem 80px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .services-detailed {
+            display: grid;
+            gap: 4rem;
+        }
+
+        .service-detailed {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .service-detailed:nth-child(even) {
+            grid-template-columns: 2fr 1fr;
+        }
+
+        .service-icon-large {
+            font-size: 8rem;
+            text-align: center;
+        }
+
+        .service-content h2 {
+            color: #1a237e;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .service-content p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .service-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .service-list li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .service-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ff6f00;
+            font-weight: bold;
+        }
+
+        .niveaux-section {
+            background: #f5f5f5;
+            padding: 4rem 2rem;
+        }
+
+        .niveaux-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto 0;
+        }
+
+        .niveau-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .niveau-card h3 {
+            color: #1a237e;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: #1a237e;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .service-detailed {
+                grid-template-columns: 1fr;
+            }
+
+            .service-detailed:nth-child(even) {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Horizon Math Tutorat</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="professeurs.html">Professeurs</a></li>
+                <li><a href="tarifs.html">Tarifs</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="contact.html" class="btn-primary">Nous contacter</a>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <h1>Nos Services</h1>
+        <p>Un accompagnement personnalisé pour votre réussite</p>
+    </div>
+
+    <section class="services-detailed">
+        <div class="service-detailed">
+            <div class="service-icon-large">📚</div>
+            <div class="service-content">
+                <h2>Tutorat Individuel</h2>
+                <p>Nous offrons un accompagnement personnalisé et sur mesure adapté aux besoins spécifiques de chaque élève. Chaque séance est conçue pour maximiser la compréhension et renforcer les compétences mathématiques.</p>
+                <ul class="service-list">
+                    <li>Séances individuelles personnalisées</li>
+                    <li>Suivi régulier des progrès</li>
+                    <li>Adaptation au rythme de l'élève</li>
+                    <li>Matériel pédagogique fourni</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="service-detailed">
+            <div class="service-content">
+                <h2>Préparation aux Examens</h2>
+                <p>Préparez-vous efficacement à vos examens avec nos stratégies éprouvées. Nous vous aidons à maîtriser les concepts clés et à développer les compétences nécessaires pour réussir.</p>
+                <ul class="service-list">
+                    <li>Révisions ciblées des concepts importants</li>
+                    <li>Simulations d'examens</li>
+                    <li>Techniques de gestion du stress</li>
+                    <li>Stratégies de résolution de problèmes</li>
+                </ul>
+            </div>
+            <div class="service-icon-large">📝</div>
+        </div>
+
+        <div class="service-detailed">
+            <div class="service-icon-large">💻</div>
+            <div class="service-content">
+                <h2>Cours en Ligne</h2>
+                <p>Profitez de la flexibilité des cours en ligne avec nos professeurs experts. Des séances interactives et efficaces depuis le confort de votre domicile.</p>
+                <ul class="service-list">
+                    <li>Plateforme interactive et intuitive</li>
+                    <li>Horaires flexibles 7j/7</li>
+                    <li>Partage d'écran et tableau virtuel</li>
+                    <li>Enregistrements disponibles</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="service-detailed">
+            <div class="service-content">
+                <h2>Aide aux Devoirs</h2>
+                <p>Un soutien régulier pour la réalisation des devoirs, la consolidation des connaissances et le développement de l'autonomie scolaire.</p>
+                <ul class="service-list">
+                    <li>Accompagnement quotidien</li>
+                    <li>Explications claires et détaillées</li>
+                    <li>Développement de méthodes de travail</li>
+                    <li>Renforcement de la confiance</li>
+                </ul>
+            </div>
+            <div class="service-icon-large">🎯</div>
+        </div>
+    </section>
+
+    <div class="niveaux-section">
+        <h2 style="text-align: center; color: #1a237e; margin-bottom: 2rem;">Niveaux Couverts</h2>
+        <div class="niveaux-grid">
+            <div class="niveau-card">
+                <h3>Primaire</h3>
+                <p>De la 1ère à la 6e année. Fondations solides en mathématiques.</p>
+            </div>
+
+            <div class="niveau-card">
+                <h3>Secondaire</h3>
+                <p>De la 1ère à la 5e secondaire. Tous les niveaux de difficulté.</p>
+            </div>
+
+            <div class="niveau-card">
+                <h3>Collégial</h3>
+                <p>Calcul différentiel, intégral, algèbre linéaire et statistiques.</p>
+            </div>
+
+            <div class="niveau-card">
+                <h3>Universitaire</h3>
+                <p>Mathématiques avancées selon vos besoins spécifiques.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Horizon Math Tutorat. Tous droits réservés.</p>
+        <p>Email: contact.mathinfostutorat@yahoo.com</p>
+    </footer>
+</body>
+</html>
