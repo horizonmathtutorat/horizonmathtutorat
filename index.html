@@ -3,69 +3,464 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horizon Math Tutorat - Accueil</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Horizon Math Tutorat - Excellence en Mathématiques</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #002147 0%, #1a472a 50%, #004d40 100%);
+            color: #fff;
+            position: relative;
+        }
+
+        /* Arrière-plan animé fluide */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .wave {
+            position: absolute;
+            width: 200%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(0, 123, 255, 0.1) 0%, transparent 70%);
+            animation: wave 20s ease-in-out infinite;
+        }
+
+        .wave:nth-child(2) {
+            animation: wave 25s ease-in-out infinite reverse;
+            background: radial-gradient(ellipse at center, rgba(26, 71, 42, 0.15) 0%, transparent 70%);
+        }
+
+        .wave:nth-child(3) {
+            animation: wave 30s ease-in-out infinite;
+            background: radial-gradient(ellipse at center, rgba(0, 77, 64, 0.1) 0%, transparent 70%);
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            25% { transform: translateX(-10%) translateY(-5%); }
+            50% { transform: translateX(0) translateY(-10%); }
+            75% { transform: translateX(10%) translateY(-5%); }
+        }
+
+        /* Symboles mathématiques flottants */
+        .math-symbols {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .math-symbol {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.3;
+            animation: float 15s infinite ease-in-out;
+            text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+            font-weight: bold;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg) scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-100px) rotate(360deg) scale(1.2);
+                opacity: 0.6;
+            }
+        }
+
+        /* Container principal */
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header avec titre animé */
+        header {
+            padding: 40px 0;
+            text-align: center;
+            background: rgba(0, 33, 71, 0.3);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(0, 123, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 4rem;
+            background: linear-gradient(45deg, #007bff, #00e676, #00bcd4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 3s ease-in-out infinite, titleMove 4s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(0, 123, 255, 0.5);
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% {
+                filter: brightness(1) drop-shadow(0 0 10px rgba(0, 123, 255, 0.5));
+            }
+            50% {
+                filter: brightness(1.3) drop-shadow(0 0 20px rgba(0, 230, 118, 0.8));
+            }
+        }
+
+        @keyframes titleMove {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-10px) scale(1.02);
+            }
+        }
+
+        nav {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 30px;
+            background: rgba(0, 123, 255, 0.2);
+            border: 2px solid rgba(0, 123, 255, 0.5);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+        }
+
+        nav a:hover {
+            background: rgba(0, 123, 255, 0.4);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 123, 255, 0.3);
+            border-color: #00e676;
+        }
+
+        /* Section intro */
+        .intro {
+            margin: 60px 0;
+            text-align: center;
+            background: rgba(0, 33, 71, 0.4);
+            padding: 50px;
+            border-radius: 30px;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(0, 123, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .intro p {
+            font-size: 1.4rem;
+            line-height: 2;
+            color: #e0f2f1;
+        }
+
+        /* Sections */
+        h2 {
+            font-size: 3rem;
+            margin: 60px 0 40px;
+            text-align: center;
+            background: linear-gradient(45deg, #00bcd4, #00e676);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease;
+        }
+
+        /* Services Cards 3D */
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .service-item {
+            background: linear-gradient(135deg, rgba(0, 33, 71, 0.6) 0%, rgba(0, 77, 64, 0.6) 100%);
+            padding: 40px;
+            border-radius: 25px;
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(0, 123, 255, 0.4);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease;
+        }
+
+        .service-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 230, 118, 0.1) 0%, transparent 70%);
+            animation: rotate 10s linear infinite;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .service-item:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .service-item:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 70px rgba(0, 230, 118, 0.4);
+            border-color: #00e676;
+        }
+
+        .service-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #00e676;
+            text-shadow: 0 0 15px rgba(0, 230, 118, 0.5);
+        }
+
+        .service-item p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #b2dfdb;
+        }
+
+        /* Features List */
+        .features-list {
+            list-style: none;
+            background: rgba(0, 33, 71, 0.4);
+            padding: 50px;
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(0, 123, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            margin-bottom: 80px;
+        }
+
+        .features-list li {
+            font-size: 1.3rem;
+            padding: 20px;
+            margin: 15px 0;
+            background: rgba(0, 123, 255, 0.1);
+            border-left: 5px solid #00e676;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease;
+        }
+
+        .features-list li:hover {
+            transform: translateX(15px);
+            background: rgba(0, 230, 118, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 230, 118, 0.3);
+        }
+
+        /* Contact */
+        .contact-info {
+            text-align: center;
+            background: rgba(0, 33, 71, 0.5);
+            padding: 50px;
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(0, 123, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            margin-bottom: 60px;
+            font-size: 1.3rem;
+            line-height: 2.5;
+        }
+
+        .contact-info a {
+            color: #00e676;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #00bcd4;
+            text-shadow: 0 0 15px rgba(0, 230, 118, 0.8);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 33, 71, 0.8);
+            padding: 40px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border-top: 2px solid rgba(0, 123, 255, 0.3);
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        footer p {
+            margin: 10px 0;
+            color: #b2dfdb;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .service-list {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Horizon Math Tutorat</h1>
-        <nav>
-            <a href="index.html">Accueil</a>
-            <a href="professeurs.html">Professeurs</a>
-            <a href="annonces.html">Annonces</a>
-            <a href="apropos.html">À propos</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+    <div class="animated-bg">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
 
-    <main>
-        <div class="intro">
-            <p>Horizon Math Tutorat offre des services de tutorat en mathématiques pour les élèves du primaire, secondaire et cégep. Notre équipe de tuteurs qualifiés et passionnés vous accompagne vers la réussite scolaire.</p>
-        </div>
+    <div class="math-symbols" id="mathSymbols"></div>
 
-        <h2>Nos Services</h2>
+    <div class="container">
+        <header>
+            <h1>Horizon Math Tutorat</h1>
+            <nav>
+                <a href="#accueil">Accueil</a>
+                <a href="#professeurs">Professeurs</a>
+                <a href="#annonces">Annonces</a>
+                <a href="#apropos">À propos</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
 
-        <div class="service-list">
-            <div class="service-item">
-                <div class="service-title">Cours Privés</div>
-                <p>Un accompagnement personnalisé et individuel adapté aux besoins spécifiques de chaque élève. Idéal pour les élèves qui nécessitent une attention particulière ou qui souhaitent progresser rapidement.</p>
-                <div class="price">50$/heure</div>
+        <main>
+            <div class="intro">
+                <p>Horizon Math Tutorat offre des services d'excellence en mathématiques pour les élèves du primaire, secondaire et cégep. Notre équipe de tuteurs qualifiés et passionnés vous accompagne vers la réussite scolaire avec une approche innovante et personnalisée.</p>
             </div>
 
-            <div class="service-item">
-                <div class="service-title">Cours Semi-Privés</div>
-                <p>Groupes de 2 à 3 élèves de niveau similaire. Cette formule combine les avantages de l'apprentissage collaboratif tout en maintenant une attention personnalisée à chaque élève.</p>
-                <div class="price">30$/heure par élève</div>
+            <h2>Nos Services</h2>
+            <div class="service-list">
+                <div class="service-item">
+                    <div class="service-title">🎓 Cours Privés</div>
+                    <p>Un accompagnement personnalisé et individuel adapté aux besoins spécifiques de chaque élève. Idéal pour ceux qui nécessitent une attention particulière ou qui souhaitent progresser rapidement vers l'excellence académique.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-title">👥 Cours Semi-Privés</div>
+                    <p>Groupes de 2 à 3 élèves de niveau similaire. Cette formule combine les avantages de l'apprentissage collaboratif tout en maintenant une attention personnalisée. L'émulation entre pairs stimule la motivation et la réussite.</p>
+                </div>
+                <div class="service-item">
+                    <div class="service-title">💻 Cours en Ligne</div>
+                    <p>Sessions interactives via notre plateforme numérique de pointe. Flexibilité et confort sans compromettre la qualité de l'enseignement. Tableau blanc partagé, exercices interactifs et outils collaboratifs inclus.</p>
+                </div>
             </div>
 
-            <div class="service-item">
-                <div class="service-title">Cours en Ligne</div>
-                <p>Sessions interactives via notre plateforme numérique. Flexibilité et confort sans compromettre la qualité de l'enseignement. Tableau blanc partagé et exercices interactifs inclus.</p>
-                <div class="price">40$/heure</div>
+            <h2>Pourquoi Choisir Horizon Math</h2>
+            <ul class="features-list">
+                <li>✨ Tuteurs diplômés et expérimentés en enseignement des mathématiques</li>
+                <li>🎯 Approche pédagogique personnalisée adaptée au rythme de chaque élève</li>
+                <li>⏰ Horaires flexibles incluant soirs et fins de semaine</li>
+                <li>📚 Matériel pédagogique complémentaire de qualité fourni</li>
+                <li>📊 Suivi régulier des progrès et communication continue avec les parents</li>
+                <li>🏆 Préparation ciblée aux examens et épreuves ministérielles</li>
+                <li>🚀 Méthodologies innovantes pour stimuler l'apprentissage</li>
+                <li>💡 Développement de la confiance et de l'autonomie académique</li>
+            </ul>
+
+            <h2 id="contact">Contact</h2>
+            <div class="contact-info">
+                📞 Téléphone: <a href="tel:5141234567">(514) 123-4567</a><br>
+                📧 Courriel: <a href="mailto:info@horizonmath.com">info@horizonmath.com</a><br>
+                📍 Adresse: 123 Rue de l'Éducation, Montréal, QC H3B 2E7
             </div>
-        </div>
+        </main>
 
-        <h2>Pourquoi Choisir Horizon Math</h2>
-        <ul class="features-list">
-            <li>Tuteurs diplômés et expérimentés en enseignement des mathématiques</li>
-            <li>Approche pédagogique personnalisée adaptée au rythme de chaque élève</li>
-            <li>Horaires flexibles incluant soirs et fins de semaine</li>
-            <li>Matériel pédagogique complémentaire fourni</li>
-            <li>Suivi régulier des progrès et communication avec les parents</li>
-            <li>Préparation ciblée aux examens et épreuves ministérielles</li>
-        </ul>
+        <footer>
+            <p>&copy; 2026 Horizon Math Tutorat. Tous droits réservés.</p>
+            <p>Excellence en éducation mathématique</p>
+            <p>123 Rue de l'Éducation, Montréal, QC H3B 2E7 | (514) 123-4567 | info@horizonmath.com</p>
+        </footer>
+    </div>
 
-        <h2>Contact</h2>
-        <div class="contact-info">
-            Téléphone: <a href="tel:5141234567">(514) 123-4567</a><br>
-            Courriel: <a href="mailto:info@horizonmath.com">info@horizonmath.com</a><br>
-            Adresse: 123 Rue de l'Éducation, Montréal, QC H3B 2E7
-        </div>
-    </main>
+    <script>
+        // Générer des symboles mathématiques flottants
+        const mathSymbols = ['∫', '∑', 'π', '∞', '√', 'α', 'β', 'θ', '∂', '∆', 'Σ', 'Ω', '∈', '∀', '∃', '≠', '≤', '≥', '±', '×', '÷', 'φ', 'λ', 'μ'];
+        const container = document.getElementById('mathSymbols');
 
-    <footer>
-        <p>&copy; 2026 Horizon Math Tutorat. Tous droits réservés.</p>
-        <p>123 Rue de l'Éducation, Montréal, QC H3B 2E7 | (514) 123-4567 | info@horizonmath.com</p>
-    </footer>
+        for (let i = 0; i < 30; i++) {
+            const symbol = document.createElement('div');
+            symbol.className = 'math-symbol';
+            symbol.textContent = mathSymbols[Math.floor(Math.random() * mathSymbols.length)];
+            symbol.style.left = Math.random() * 100 + '%';
+            symbol.style.top = Math.random() * 100 + '%';
+            symbol.style.animationDelay = Math.random() * 5 + 's';
+            symbol.style.animationDuration = (10 + Math.random() * 10) + 's';
+            symbol.style.fontSize = (1.5 + Math.random() * 2) + 'rem';
+            container.appendChild(symbol);
+        }
+
+        // Animation des éléments au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 1s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-item, .features-list li').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
